@@ -1,90 +1,0 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VoxMind AI</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
-</head>
-<body>
-
-    <div class="ambient-glow color-1"></div>
-    <div class="ambient-glow color-2"></div>
-
-    <main class="app-container">
-        
-        <header class="hero-header">
-            <h1>VOX<span class="highlight-text">MIND</span> AI</h1>
-            <p>دستیار صوتی فرا-هوشمند؛ ضبط، ترجمه و ارتقای آنی زبان.</p>
-        </header>
-
-        <section id="auth-section" class="glass-panel auth-panel">
-            <h2>🔐 ورود به سیستم</h2>
-            <p class="sub-text">برای فعال‌سازی مغز هوش مصنوعی، کلید Gemini خود را وارد کنید.</p>
-            <div class="input-wrapper">
-                <input type="password" id="api-key" placeholder="کلید API خود را اینجا قرار دهید..." dir="ltr">
-                <button id="save-key-btn" class="btn btn-primary glow-effect">
-                    <span>فعال‌سازی</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </button>
-            </div>
-        </section>
-
-        <section id="main-interface" class="hidden">
-            
-            <div class="glass-panel recorder-panel">
-                <div class="timer-display" id="timer-display">00:00</div>
-                
-                <canvas id="audio-visualizer" width="600" height="100"></canvas>
-                
-                <div class="status-badge" id="status-text">آماده برای شنیدن...</div>
-
-                <div class="controls-wrapper">
-                    <button id="record-btn" class="btn btn-circle btn-success">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-                    </button>
-                    <button id="stop-btn" class="btn btn-circle btn-danger" disabled>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/></svg>
-                    </button>
-                </div>
-            </div>
-
-            <div class="results-grid">
-                <div class="glass-panel result-card raw-card">
-                    <div class="card-header">
-                        <h3>💭 ورودی خام (Raw)</h3>
-                    </div>
-                    <div class="textarea-container">
-                        <textarea id="raw-text" placeholder="آنچه شنیده شد..." readonly></textarea>
-                    </div>
-                </div>
-
-                <div class="glass-panel result-card refined-card">
-                    <div class="card-header header-with-action">
-                        <h3>✨ خروجی هوشمند (AI Refined)</h3>
-                        <button id="copy-btn" class="btn btn-sm btn-ghost hidden" title="کپی متن">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="copy-icon"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-                            <span class="copy-label">کپی</span>
-                        </button>
-                    </div>
-                    <div id="refined-output" class="output-box" dir="ltr">
-                        <div class="empty-state">منتظر پردازش...</div>
-                    </div>
-                     <button id="refine-btn" class="btn btn-primary full-width glow-effect" disabled>
-                        🧠 آنالیز و ارتقای متن
-                    </button>
-                </div>
-            </div>
-
-             <button id="finish-btn" class="btn btn-text-danger finish-trigger" disabled>
-                شروع مجدد و پاکسازی
-            </button>
-
-        </section>
-    </main>
-
-    <script src="script.js"></script>
-</body>
-</html>
